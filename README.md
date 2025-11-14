@@ -1,4 +1,4 @@
-# Ecoleta Igarassu: Plataforma de Logística Reversa sob Demanda
+# eColeta Igarassu: Plataforma de Logística Reversa sob Demanda
 
 ### Conectando Pessoas, Tecnologia e Sustentabilidade em Igarassu
 
@@ -6,7 +6,7 @@
 
 ## 🧐 Sobre o Projeto
 
-Inspirado em modelos de aplicativos de entrega (*delivery*), o Ecoleta conecta o cidadão que deseja descartar corretamente com Eco-Coletores e a cadeia de reciclagem de forma eficiente e transparente.
+Inspirado em modelos de aplicativos de entrega (*delivery*), o eColeta conecta o cidadão que deseja descartar corretamente com Eco-Coletores e a cadeia de reciclagem de forma eficiente e transparente.
 
 ---
 
@@ -43,7 +43,7 @@ Para garantir a **eficiência logística** e a **transparência** na cadeia de r
 
 O diagrama abaixo ilustra a arquitetura, focando nas principais entidades e seus relacionamentos:
 
-![Diagrama Entidade-Relacionamento do Banco de Dados Ecoleta Igarassu](Untitled%20diagram-2025-11-13-011101.png)
+![Diagrama Entidade-Relacionamento do Banco de Dados eColeta Igarassu](Untitled%20diagram-2025-11-13-011101.png)
 
 ---
 
