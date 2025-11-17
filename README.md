@@ -43,20 +43,23 @@ Para garantir a **eficiência logística** e a **transparência** na cadeia de r
 
 O diagrama abaixo ilustra a arquitetura, focando nas principais entidades e seus relacionamentos:
 
-![Diagrama Entidade-Relacionamento do Banco de Dados eColeta Igarassu](Untitled%20diagram-2025-11-13-011101.png)
+![Diagrama Entidade-Relacionamento do Banco de Dados eColeta Igarassu](Diagrama-Banco-de-Dados.png)
 
 ---
 
 ### 🔑 Entidades Principais e Funções
 
 * **`Morador`** 👤
-    * **Função:** Geração de demanda. Contém dados de endereço para a coleta e é o solicitante das `Coleta`s.
+    * **Função:** Geração de demanda. Contém dados pessoais, CPF, Saldo de Pontos e referencia a tabela Endereco. É o solicitante das Coletas.
+
+* **`Endereco`** 📍
+    * **Função:** Normalização de Endereço e Logística. Centraliza dados de CEP, Logradouro e Coordenadas Geográficas (lat/lon) para `Morador` e `Cooperativa`.
 
 * **`EcoColetor`** 🚚
-    * **Função:** Execução do serviço. Pode ser um autônomo ou cooperado (`fk_cooperativa`), e é responsável por realizar a `Coleta`.
+    * **Função:** Execução do serviço. O profissional que realiza a coleta. Possui Saldo de Valor (R$) e é obrigatoriamente ligado a uma `Cooperativa`.
 
 * **`Cooperativa`** 🏢
-    * **Função:** Gestão dos Eco-Coletores e destino final dos resíduos.
+    * **Função:** Ponto de validação financeira, login de gestão e destino final do resíduo. Referencia a tabela `Endereco` para a sede.
 
 * **`Coleta`** 📅
     * **Função:** O coração do sistema. Representa o agendamento de coleta, ligando o `Morador` que solicita ao `EcoColetor` que a realiza.
@@ -79,6 +82,7 @@ O diagrama abaixo ilustra a arquitetura, focando nas principais entidades e seus
 
 | Entidades | Relacionamento (Cardinalidade) | Descrição |
 | :--- | :--- | :--- |
+| `Endereco` e `Morador` | 1:1 (Um Endereço é o ponto de coleta de Um Morador) | Garante a normalização e precisão da geolocalização. |
 | `Morador` e `Coleta` | 1:N (Um Morador solicita N Coletas) | Rastreia o histórico de descarte de cada cidadão. |
 | `EcoColetor` e `Coleta` | 1:N (Um Eco-Coletor realiza N Coletas) | Essencial para a otimização de rotas e cálculo de rendimento. |
 | `Coleta` e `Itens_Coleta` | 1:N (Uma Coleta contém N Itens) | Permite detalhar a quantidade (`peso_final_kg`) de cada tipo de resíduo. |
